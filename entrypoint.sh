@@ -2,12 +2,17 @@
 
 cat > /etc/ppp/peers/vpn <<_EOF_
 pty "pptp ${SERVER} --nolaunchpppd"
+lock
+noauth
+refuse-pap
+refuse-eap
+refuse-chap
+refuse-mschap
+require-mppe-128
+nobsdcomp
+nodeflate
 name "${USERNAME}"
 password "${PASSWORD}"
-remotename PPTP
-require-mppe-128
-file /etc/ppp/options.pptp
-ipparam "vpn"
 _EOF_
 
 cat > /etc/ppp/ip-up <<_EOF_
