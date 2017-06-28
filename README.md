@@ -30,3 +30,11 @@ $ curl ifconfig.co
 $ curl -x socks5://172.17.0.2:1080 ifconfig.co
 (VPN powered address)
 ```
+
+## Notes
+
+### LCP: timeout sending Config-Requests
+```
+sudo modprobe nf_conntrack_pptp
+```
+- See: https://askubuntu.com/questions/269399/failed-to-connect-to-pptp-vpn-server-on-ubuntu
